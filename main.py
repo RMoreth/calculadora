@@ -1,6 +1,6 @@
 
 r = ''
-while r != 'n':
+while True:
     num1 = str(input("Digite o primeiro valor")).replace(',', '.')
     print("Qual operação deseja realizar:\n")
     print('"+" para somar.')
@@ -12,27 +12,32 @@ while r != 'n':
     num2 = str(input("Digite o segundo valor")).replace(',', '.')
     num1 = float(num1)
     num2 = float(num2)
+    match operacao:
+        case '+':
+            resultado = num1 + num2
+            print(f"o resultado foi {resultado}")
+        case '-':
+            resultado = num1 - num2
+            print(f"o resultado foi {resultado}")
+        case '*':
+            resultado = num1 * num2
+            print(f"o resultado foi {resultado}")
+        case '/':
+            resultado = num1 / num2
+            print(f"o resultado foi {resultado}")
+        case '%':
+            resultado = num1 % num2
+            print(f"o resultado foi {resultado}")
+        case _:
+            print("nao foi encontrada a operação")
 
-    if operacao == '+':
-        resultado = num1 + num2
-        print(f"o resultado foi {resultado}")
-    elif operacao == '-':
-        resultado = num1 - num2
-        print(f"o resultado foi {resultado}")
-    elif operacao == '*':
-        resultado = num1 * num2
-        print(f"o resultado foi {resultado}")
-    elif operacao == '/':
-        resultado = num1 / num2
-        print(f"o resultado foi {resultado}")
-    elif operacao == '%':
-        resultado = num1 % num2
-        print(f"o resultado foi {resultado}")
-    else:
-        print("nao foi encontrada a operação")
+    r = str(input("Deseja continuar?[s/n]")).lower().strip()
 
-    r = str(input("Deseja continuar?[s/n]"))
-
-    if r == 'n':
+    if r == 's':
+        continue
+    elif r == 'n':
         print("Fim do programa")
         break
+    else:
+        print("Comando inválido")
+        continue
